@@ -1,0 +1,21 @@
+name: ${project.name}
+main: de.redstoneworld.redhunger.RedHunger
+version: '${minecraft.plugin.version}'
+description: ${project.description}
+authors: [Phoenix616]
+commands:
+   hunger:
+      aliases: [redhunger]
+      description: Give yourself or a player hunger
+      usage: /<command> [<player> [<foodlevel>]]
+      permission-message: You don't have the permission <permission>
+permissions:
+   rwm.redhunger.use:
+      description: Gives permission to use the /hunger command
+      default: op
+   rwm.redhunger.use.others:
+      description: Gives permission to use the /hunger command on other players
+      default: op
+   rwm.redhunger.setlevel:
+      description: Gives permission to set the food level
+      default: op
