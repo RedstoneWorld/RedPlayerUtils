@@ -19,3 +19,6 @@ permissions:
    rwm.redhunger.setlevel:
       description: Gives permission to set the food level
       default: op
+   rwm.redhunger.reload:
+      description: Gives permission to reload the config via /hunger --reload
+      default: op
