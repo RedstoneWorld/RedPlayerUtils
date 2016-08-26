@@ -1,9 +1,10 @@
 lang:
   error:
-    usage: "&4Usage: &f/hunger [<player> [<foodlevel>]]"
+    usage: "&4Usage: &f/hunger [<foodlevel> [<player>]]"
     no-permission: "&4Dir fehlt das Recht &f%perm%&4!"
     player-not-found: "&4Kein Spieler mit dem Namen &f%name%&4 online!"
-    wrong-foodlevel: "&f%input% %4ist keine ganze Zahl!"
+    foodlevel-above-max: "&f%input% &4ist höher als das maximale Foodlevel!"
+    wrong-foodlevel: "&f%input% 44ist keine ganze Zahl!"
   success:
     own: "&7Du hast nun Hunger!"
     other: "&f%name% &7hat nun Hunger!"

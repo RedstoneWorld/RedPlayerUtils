@@ -7,7 +7,7 @@ commands:
    hunger:
       aliases: [redhunger]
       description: Give yourself or a player hunger
-      usage: /<command> [<player> [<foodlevel>]]
+      usage: /<command> [<foodlevel> [<player>]]
       permission-message: You don't have the permission <permission>
 permissions:
    rwm.redhunger.use:

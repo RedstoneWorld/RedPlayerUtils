@@ -30,36 +30,42 @@ public class RedHunger extends JavaPlugin {
             return true;
         }
 
-        // Get target player and food level
-        int foodLevel = 0;
+        // Get target player
         Player target = null;
-        if (args.length > 0) {
-            if (!sender.getName().equalsIgnoreCase(args[0]) && !sender.hasPermission("rwm.redhunger.use.others")) {
+        if (args.length > 1) {
+            if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redhunger.use.others")) {
                 sender.sendMessage(getLang("error.no-permission", "perm", "rwm.redhunger.use.others"));
                 return true;
             }
-            target = getServer().getPlayer(args[0]);
+            target = getServer().getPlayer(args[1]);
             if (target == null || !target.isOnline()) {
-                sender.sendMessage(getLang("error.player-not-found", "name", args[0]));
+                sender.sendMessage(getLang("error.player-not-found", "name", args[1]));
                 return true;
-            }
-            if (args.length > 1) {
-                if (!sender.hasPermission("rwm.redhunger.setlevel")) {
-                    sender.sendMessage(getLang("error.no-permission", "perm", "rwm.redhunger.setlevel"));
-                    return true;
-                }
-                try {
-                    foodLevel = Integer.parseInt(args[1]);
-                } catch (NumberFormatException e) {
-                    sender.sendMessage(getLang("error.wrong-foodlevel", "input", args[1]));
-                    return true;
-                }
             }
         } else if (!(sender instanceof Player)) {
             sender.sendMessage(getLang("usage"));
             return true;
         } else {
             target = (Player) sender;
+        }
+
+        // Get food level
+        int foodLevel = 0;
+        if (args.length > 0) {
+            if (!sender.hasPermission("rwm.redhunger.setlevel")) {
+                sender.sendMessage(getLang("error.no-permission", "perm", "rwm.redhunger.setlevel"));
+                return true;
+            }
+            try {
+                foodLevel = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                sender.sendMessage(getLang("error.wrong-foodlevel", "input", args[0]));
+                return true;
+            }
+            if (foodLevel > 20) {
+                sender.sendMessage(getLang("error.foodlevel-above-max", "input", args[0]));
+                return true;
+            }
         }
 
         // Apply food level
