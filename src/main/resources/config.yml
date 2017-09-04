@@ -1,10 +1,22 @@
 lang:
   error:
     usage: "&4Usage: &f/hunger [<foodlevel> [<player>]]"
+    usage-saturation: "&4Usage: &f/saturation [<saturationlevel> [<player>]]"
+    usage-health: "&4Usage: &f/health [<healthlevel> [<player>]]"
     no-permission: "&4Dir fehlt das Recht &f%perm%&4!"
     player-not-found: "&4Kein Spieler mit dem Namen &f%name%&4 online!"
     foodlevel-above-max: "&f%input% &4ist höher als das maximale Foodlevel!"
-    wrong-foodlevel: "&f%input% 44ist keine ganze Zahl!"
+    saturation-above-max: "&f%input% &4ist höher als das maximale Sättigungslevel!"
+    health-above-max: "&f%input% &4ist höher als dein maximales Leben!"
+    wrong-foodlevel: "&f%input% &4ist keine ganze Zahl!"
+    wrong-saturation: "&f%input% &4ist keine Zahl!"
+    wrong-health: "&f%input% &4ist keine Zahl!"
   success:
-    own: "&7Du hast nun Hunger!"
-    other: "&f%name% &7hat nun Hunger!"
+    own: "&7Hunger auf %value% gesetzt!"
+    other: "&f%name%&7's Hunger auf %value% gesetzt!"
+  success-saturation:
+    own: "&7Sättigung auf %value% gesetzt!"
+    other: "&f%name%&7's Sättigung auf %value% gesetzt!"
+  success-health:
+    own: "&7Leben auf %value% gesetzt!"
+    other: "&f%name%&7's Leben auf %value% gesetzt!"

@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.redstoneworld</groupId>
-    <artifactId>redhunger</artifactId>
+    <artifactId>redplayerutils</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>RedHunger</name>
+    <name>RedPlayerUtils</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.9-R0.1-SNAPSHOT</version>
+            <version>1.12-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -39,7 +39,7 @@
             </activation>
             <properties>
                 <buildNumber>0</buildNumber>
-                <buildDescription>(manually compiled)</buildDescription>
+                <buildDescription>(compiled at ${maven.build.timestamp})</buildDescription>
             </properties>
         </profile>
         <profile>

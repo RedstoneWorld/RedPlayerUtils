@@ -1,13 +1,29 @@
 name: ${project.name}
-main: de.redstoneworld.redhunger.RedHunger
+main: de.redstoneworld.redhunger.RedPlayerUtils
 version: '${minecraft.plugin.version}'
 description: ${project.description}
 authors: [Phoenix616]
 commands:
+   redplayerutils:
+      aliases: [rpu]
+      description: Main plugin command
+      usage: /<command> [reload]
+      permission: rwm.redplayerutils
+      permission-message: You don't have the permission <permission>
    hunger:
       aliases: [redhunger]
       description: Give yourself or a player hunger
       usage: /<command> [<foodlevel> [<player>]]
+      permission-message: You don't have the permission <permission>
+   saturation:
+      aliases: [redsaturation]
+      description: Give yourself or a player saturation
+      usage: /<command> [<saturationlevel> [<player>]]
+      permission-message: You don't have the permission <permission>
+   health:
+      aliases: [redhealth, heal]
+      description: Give yourself or a player health
+      usage: /<command> [<healthleve> [<player>]]
       permission-message: You don't have the permission <permission>
 permissions:
    rwm.redhunger.use:
@@ -19,6 +35,27 @@ permissions:
    rwm.redhunger.setlevel:
       description: Gives permission to set the food level
       default: op
-   rwm.redhunger.reload:
-      description: Gives permission to reload the config via /hunger --reload
+   rwm.redsaturation.use:
+      description: Gives permission to use the /hunger command
+      default: op
+   rwm.redsaturation.use.others:
+      description: Gives permission to use the /hunger command on other players
+      default: op
+   rwm.redsaturation.setlevel:
+      description: Gives permission to set the food level
+      default: op
+   rwm.redhealth.use:
+      description: Gives permission to use the /hunger command
+      default: op
+   rwm.redhealth.use.others:
+      description: Gives permission to use the /hunger command on other players
+      default: op
+   rwm.redhealth.setlevel:
+      description: Gives permission to set the food level
+      default: op
+   rwm.redplayerutils:
+      description: Gives permission to the main plugin command
+      default: op
+   rwm.redplayerutils.reload:
+      description: Gives permission to reload the config via /redplayerutils reload
       default: op
