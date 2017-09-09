@@ -10,6 +10,8 @@ public class RedPlayerUtils extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         getCommand("hunger").setExecutor(new RedHungerCommand(this));
+        getCommand("saturation").setExecutor(new RedHungerCommand(this));
+        getCommand("health").setExecutor(new RedHungerCommand(this));
     }
 
     @Override
