@@ -20,6 +20,11 @@ public class RedHungerCommand implements CommandExecutor {
             return true;
         }
 
+        if (args.length == 0 && sender instanceof Player) {
+            sender.sendMessage(plugin.getLang("current-level.foodlevel", "value", String.valueOf(((Player) sender).getFoodLevel())));
+            return true;
+        }
+
         // Get target player
         Player target;
         if (args.length > 1) {
@@ -39,31 +44,29 @@ public class RedHungerCommand implements CommandExecutor {
             target = (Player) sender;
         }
 
-        // Get food level
-        int foodLevel = MAX_LEVEL;
-        if (args.length > 0) {
-            if (!sender.hasPermission("rwm.redhunger.setlevel")) {
-                sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redhunger.setlevel"));
-                return true;
-            }
-            try {
-                foodLevel = Integer.parseInt(args[0]);
-            } catch (NumberFormatException e) {
-                sender.sendMessage(plugin.getLang("error.wrong-foodlevel", "input", args[0]));
-                return true;
-            }
+        if (!sender.hasPermission("rwm.redhunger.setlevel")) {
+            sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redhunger.setlevel"));
+            return true;
+        }
+
+        try {
+            int foodLevel = Integer.parseInt(args[0]);
+
             if (foodLevel > MAX_LEVEL) {
                 sender.sendMessage(plugin.getLang("error.foodlevel-above-max", "input", args[0]));
                 return true;
             }
-        }
 
-        // Apply food level
-        target.setFoodLevel(foodLevel);
-        sender.sendMessage(plugin.getLang("success." + (sender == target ? "own" : "other"),
-                "name", target.getName(),
-                "value", String.valueOf(foodLevel)
-        ));
+            // Apply food level
+            target.setFoodLevel(foodLevel);
+            sender.sendMessage(plugin.getLang("success." + (sender == target ? "own" : "other"),
+                    "name", target.getName(),
+                    "value", String.valueOf(foodLevel)
+            ));
+        } catch (NumberFormatException e) {
+            sender.sendMessage(plugin.getLang("error.wrong-foodlevel", "input", args[0]));
+            return true;
+        }
         return true;
     }
 }

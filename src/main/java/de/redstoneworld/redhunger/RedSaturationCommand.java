@@ -20,6 +20,11 @@ public class RedSaturationCommand implements CommandExecutor {
             return true;
         }
 
+        if (args.length == 0 && sender instanceof Player) {
+            sender.sendMessage(plugin.getLang("current-level.saturation", "value", String.valueOf(((Player) sender).getSaturation())));
+            return true;
+        }
+
         // Get target player
         Player target;
         if (args.length > 1) {
@@ -39,31 +44,30 @@ public class RedSaturationCommand implements CommandExecutor {
             target = (Player) sender;
         }
 
-        // Get food level
-        float saturationLevel = MAX_LEVEL;
-        if (args.length > 0) {
-            if (!sender.hasPermission("rwm.redsaturation.setlevel")) {
-                sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redsaturation.setlevel"));
-                return true;
-            }
-            try {
-                saturationLevel = Float.parseFloat(args[0]);
-            } catch (NumberFormatException e) {
-                sender.sendMessage(plugin.getLang("error.wrong-saturationlevel", "input", args[0]));
-                return true;
-            }
+        if (!sender.hasPermission("rwm.redsaturation.setlevel")) {
+            sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redsaturation.setlevel"));
+            return true;
+        }
+
+        try {
+            float saturationLevel = Float.parseFloat(args[0]);
+
             if (saturationLevel > MAX_LEVEL) {
                 sender.sendMessage(plugin.getLang("error.saturationlevel-above-max", "input", args[0]));
                 return true;
             }
+
+            // Apply saturation level
+            target.setSaturation(saturationLevel);
+            sender.sendMessage(plugin.getLang("success-saturation." + (sender == target ? "own" : "other"),
+                    "name", target.getName(),
+                    "value", String.valueOf(saturationLevel)
+            ));
+        } catch (NumberFormatException e) {
+            sender.sendMessage(plugin.getLang("error.wrong-saturationlevel", "input", args[0]));
+            return true;
         }
 
-        // Apply food level
-        target.setSaturation(saturationLevel);
-        sender.sendMessage(plugin.getLang("success-saturation." + (sender == target ? "own" : "other"),
-                "name", target.getName(),
-                "value", String.valueOf(saturationLevel)
-        ));
         return true;
     }
 

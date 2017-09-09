@@ -20,3 +20,7 @@ lang:
   success-health:
     own: "&7Leben auf %value% gesetzt!"
     other: "&f%name%&7's Leben auf %value% gesetzt!"
+  current-level:
+    foodlevel: "&7Du hast momentan &f%value&7 Hunger!"
+    saturation: "&7Du hast momentan &f%value&7 Sättigung!"
+    health: "&7Du hast momentan &f%value&7 Leben!"
