@@ -24,3 +24,7 @@ lang:
     foodlevel: "&7Du hast momentan &f%value&7 Hunger!"
     saturation: "&7Du hast momentan &f%value&7 Sättigung!"
     health: "&7Du hast momentan &f%value&7 Leben!"
+  current-level-other:
+    foodlevel: "&f%player%&7 hat momentan &f%value&7 Hunger!"
+    saturation: "&f%player%&7 hat momentan &f%value&7 Sättigung!"
+    health: "&f%player%&7 hat momentan &f%value&7 Leben!"

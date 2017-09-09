@@ -13,17 +13,17 @@ commands:
    hunger:
       aliases: [redhunger]
       description: Give yourself or a player hunger
-      usage: /<command> [<foodlevel> [<player>]]
+      usage: /<command> [<foodlevel>] [<player>]
       permission-message: You don't have the permission <permission>
    saturation:
       aliases: [redsaturation]
       description: Give yourself or a player saturation
-      usage: /<command> [<saturationlevel> [<player>]]
+      usage: /<command> [<saturationlevel>] [<player>]
       permission-message: You don't have the permission <permission>
    health:
       aliases: [redhealth, heal]
       description: Give yourself or a player health
-      usage: /<command> [<healthleve> [<player>]]
+      usage: /<command> [<healthleve>] [<player>]
       permission-message: You don't have the permission <permission>
 permissions:
    rwm.redhunger.use:

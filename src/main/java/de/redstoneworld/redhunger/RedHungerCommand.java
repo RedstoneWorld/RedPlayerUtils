@@ -23,6 +23,18 @@ public class RedHungerCommand implements CommandExecutor {
         if (args.length == 0 && sender instanceof Player) {
             sender.sendMessage(plugin.getLang("current-level.foodlevel", "value", String.valueOf(((Player) sender).getFoodLevel())));
             return true;
+        } else if (args.length == 1) {
+            Player player = plugin.getServer().getPlayer(args[0]);
+            if (player != null) {
+                if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redhunger.use.others")) {
+                    sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redhunger.use.others"));
+                    return true;
+                }
+                sender.sendMessage(plugin.getLang("current-level-other.foodlevel",
+                        "player", player.getName(),
+                        "value", String.valueOf(player.getFoodLevel())));
+                return true;
+            }
         }
 
         // Get target player

@@ -23,6 +23,18 @@ public class RedSaturationCommand implements CommandExecutor {
         if (args.length == 0 && sender instanceof Player) {
             sender.sendMessage(plugin.getLang("current-level.saturation", "value", String.valueOf(((Player) sender).getSaturation())));
             return true;
+        } else if (args.length == 1) {
+            Player player = plugin.getServer().getPlayer(args[0]);
+            if (player != null) {
+                if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redsaturation.use.others")) {
+                    sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redsaturation.use.others"));
+                    return true;
+                }
+                sender.sendMessage(plugin.getLang("current-level-other.saturation",
+                        "player", player.getName(),
+                        "value", String.valueOf(player.getSaturation())));
+                return true;
+            }
         }
 
         // Get target player
