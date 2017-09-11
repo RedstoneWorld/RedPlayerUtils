@@ -49,7 +49,7 @@ public class RedHealthCommand implements CommandExecutor {
                 return true;
             }
         } else if (!(sender instanceof Player)) {
-            sender.sendMessage(plugin.getLang("usage"));
+            sender.sendMessage(plugin.getLang("usage-health"));
             return true;
         } else {
             target = (Player) sender;
@@ -63,7 +63,7 @@ public class RedHealthCommand implements CommandExecutor {
         try {
             double healthLevel = Double.parseDouble(args[0]);
             if (healthLevel > 20) {
-                sender.sendMessage(plugin.getLang("error.healthlevel-above-max", "input", args[0]));
+                sender.sendMessage(plugin.getLang("error.health-above-max", "input", args[0]));
                 return true;
             }
 
@@ -74,7 +74,7 @@ public class RedHealthCommand implements CommandExecutor {
                     "value", String.valueOf(healthLevel)
             ));
         } catch (NumberFormatException e) {
-            sender.sendMessage(plugin.getLang("error.wrong-healthlevel", "input", args[0]));
+            sender.sendMessage(plugin.getLang("error.wrong-health", "input", args[0]));
             return true;
         }
         return true;

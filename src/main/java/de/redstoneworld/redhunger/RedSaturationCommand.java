@@ -50,7 +50,7 @@ public class RedSaturationCommand implements CommandExecutor {
                 return true;
             }
         } else if (!(sender instanceof Player)) {
-            sender.sendMessage(plugin.getLang("usage"));
+            sender.sendMessage(plugin.getLang("usage-saturation"));
             return true;
         } else {
             target = (Player) sender;
@@ -65,7 +65,7 @@ public class RedSaturationCommand implements CommandExecutor {
             float saturationLevel = Float.parseFloat(args[0]);
 
             if (saturationLevel > MAX_LEVEL) {
-                sender.sendMessage(plugin.getLang("error.saturationlevel-above-max", "input", args[0]));
+                sender.sendMessage(plugin.getLang("error.saturation-above-max", "input", args[0]));
                 return true;
             }
 
@@ -76,7 +76,7 @@ public class RedSaturationCommand implements CommandExecutor {
                     "value", String.valueOf(saturationLevel)
             ));
         } catch (NumberFormatException e) {
-            sender.sendMessage(plugin.getLang("error.wrong-saturationlevel", "input", args[0]));
+            sender.sendMessage(plugin.getLang("error.wrong-saturation", "input", args[0]));
             return true;
         }
 
