@@ -26,7 +26,7 @@ public class RedHungerCommand implements CommandExecutor {
         } else if (args.length == 1) {
             Player player = plugin.getServer().getPlayer(args[0]);
             if (player != null) {
-                if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redhunger.use.others")) {
+                if (sender != player && !sender.hasPermission("rwm.redhunger.use.others")) {
                     sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redhunger.use.others"));
                     return true;
                 }
@@ -50,7 +50,7 @@ public class RedHungerCommand implements CommandExecutor {
                 return true;
             }
         } else if (!(sender instanceof Player)) {
-            sender.sendMessage(plugin.getLang("usage"));
+            sender.sendMessage(plugin.getLang("usage-foodlevel"));
             return true;
         } else {
             target = (Player) sender;
@@ -71,7 +71,7 @@ public class RedHungerCommand implements CommandExecutor {
 
             // Apply food level
             target.setFoodLevel(foodLevel);
-            sender.sendMessage(plugin.getLang("success." + (sender == target ? "own" : "other"),
+            sender.sendMessage(plugin.getLang("success-foodlevel." + (sender == target ? "own" : "other"),
                     "name", target.getName(),
                     "value", String.valueOf(foodLevel)
             ));

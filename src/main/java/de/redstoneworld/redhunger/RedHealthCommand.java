@@ -25,7 +25,7 @@ public class RedHealthCommand implements CommandExecutor {
         } else if (args.length == 1) {
             Player player = plugin.getServer().getPlayer(args[0]);
             if (player != null) {
-                if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redhealth.use.others")) {
+                if (sender != player && !sender.hasPermission("rwm.redhealth.use.others")) {
                     sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redhealth.use.others"));
                     return true;
                 }

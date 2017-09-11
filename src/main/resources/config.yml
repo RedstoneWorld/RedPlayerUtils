@@ -1,6 +1,6 @@
 lang:
   error:
-    usage: "&4Usage: &f/hunger [<foodlevel> [<player>]]"
+    usage-foodlevel: "&4Usage: &f/hunger [<foodlevel> [<player>]]"
     usage-saturation: "&4Usage: &f/saturation [<saturationlevel> [<player>]]"
     usage-health: "&4Usage: &f/health [<healthlevel> [<player>]]"
     no-permission: "&4Dir fehlt das Recht &f%perm%&4!"
@@ -11,7 +11,7 @@ lang:
     wrong-foodlevel: "&f%input% &4ist keine ganze Zahl!"
     wrong-saturation: "&f%input% &4ist keine Zahl!"
     wrong-health: "&f%input% &4ist keine Zahl!"
-  success:
+  success-foodlevel:
     own: "&7Hunger auf %value% gesetzt!"
     other: "&f%name%&7's Hunger auf %value% gesetzt!"
   success-saturation:
