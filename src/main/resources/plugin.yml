@@ -1,5 +1,5 @@
 name: ${project.name}
-main: de.redstoneworld.redhunger.RedPlayerUtils
+main: de.redstoneworld.redplayerutils.RedPlayerUtils
 version: '${minecraft.plugin.version}'
 description: ${project.description}
 authors: [Phoenix616]
@@ -23,7 +23,17 @@ commands:
    health:
       aliases: [redhealth, heal]
       description: Give yourself or a player health
-      usage: /<command> [<healthleve>] [<player>]
+      usage: /<command> [<healthlevel>] [<player>]
+      permission-message: You don't have the permission <permission>
+   xp:
+      aliases: [redxp,experience,exp,redexp]
+      description: Give yourself or a player experience
+      usage: /<command> [<xp>] [<player>]
+      permission-message: You don't have the permission <permission>
+   level:
+      aliases: [redlevel,lvl]
+      description: Give yourself or a player level
+      usage: /<command> [<level>] [<player>]
       permission-message: You don't have the permission <permission>
 permissions:
    rwm.redhunger.use:
@@ -36,22 +46,40 @@ permissions:
       description: Gives permission to set the food level
       default: op
    rwm.redsaturation.use:
-      description: Gives permission to use the /hunger command
+      description: Gives permission to use the /saturation command
       default: op
    rwm.redsaturation.use.others:
-      description: Gives permission to use the /hunger command on other players
+      description: Gives permission to use the /saturation command on other players
       default: op
    rwm.redsaturation.setlevel:
       description: Gives permission to set the food level
       default: op
    rwm.redhealth.use:
-      description: Gives permission to use the /hunger command
+      description: Gives permission to use the /health command
       default: op
    rwm.redhealth.use.others:
-      description: Gives permission to use the /hunger command on other players
+      description: Gives permission to use the /health command on other players
       default: op
    rwm.redhealth.setlevel:
       description: Gives permission to set the food level
+      default: op
+   rwm.redxp.use:
+      description: Gives permission to use the /xp command
+      default: op
+   rwm.redxp.use.others:
+      description: Gives permission to use the /xp command on other players
+      default: op
+   rwm.redxp.setlevel:
+      description: Gives permission to set the experience level
+      default: op
+   rwm.redlevel.use:
+      description: Gives permission to use the /level command
+      default: op
+   rwm.redlevel.use.others:
+      description: Gives permission to use the /level command on other players
+      default: op
+   rwm.redlevel.setlevel:
+      description: Gives permission to set the elevelerience level
       default: op
    rwm.redplayerutils:
       description: Gives permission to the main plugin command

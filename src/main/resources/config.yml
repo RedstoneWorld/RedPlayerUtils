@@ -3,6 +3,7 @@ lang:
     usage-foodlevel: "&4Usage: &f/hunger [<foodlevel> [<player>]]"
     usage-saturation: "&4Usage: &f/saturation [<saturationlevel> [<player>]]"
     usage-health: "&4Usage: &f/health [<healthlevel> [<player>]]"
+    usage-xp: "&4Usage: &f/xp [<xp> [<player>]]"
     no-permission: "&4Dir fehlt das Recht &f%perm%&4!"
     player-not-found: "&4Kein Spieler mit dem Namen &f%name%&4 online!"
     foodlevel-above-max: "&f%input% &4ist höher als das maximale Foodlevel!"
@@ -11,6 +12,7 @@ lang:
     wrong-foodlevel: "&f%input% &4ist keine ganze Zahl!"
     wrong-saturation: "&f%input% &4ist keine Zahl!"
     wrong-health: "&f%input% &4ist keine Zahl!"
+    wrong-xp: "&f%input% &4ist keine Zahl!"
   success-foodlevel:
     own: "&7Hunger auf %value% gesetzt!"
     other: "&f%name%&7's Hunger auf %value% gesetzt!"
@@ -20,11 +22,21 @@ lang:
   success-health:
     own: "&7Leben auf %value% gesetzt!"
     other: "&f%name%&7's Leben auf %value% gesetzt!"
+  success-xp:
+    own: "&7Erfahrung auf %value% gesetzt!"
+    other: "&f%name%&7's Erfahrung auf %value% gesetzt!"
+  success-level:
+    own: "&7Level auf %value% gesetzt!"
+    other: "&f%name%&7's Level auf %value% gesetzt!"
   current-level:
     foodlevel: "&7Du hast momentan &f%value&7 Hunger!"
     saturation: "&7Du hast momentan &f%value&7 Sättigung!"
     health: "&7Du hast momentan &f%value&7 Leben!"
+    xp: "&7Du hast momentan &f%value&7 Erfahrung!"
+    level: "&7Du hast momentan &f%value&7 Level!"
   current-level-other:
     foodlevel: "&f%player%&7 hat momentan &f%value&7 Hunger!"
     saturation: "&f%player%&7 hat momentan &f%value&7 Sättigung!"
     health: "&f%player%&7 hat momentan &f%value&7 Leben!"
+    xp: "&f%player%&7 hat momentan &f%value&7 Erfahrung!"
+    level:  "&f%player%&7 hat momentan &f%value&7 Level!"
