@@ -14,72 +14,82 @@ commands:
       aliases: [redhunger]
       description: Give yourself or a player hunger
       usage: /<command> [<foodlevel>] [<player>]
-      permission-message: You don't have the permission <permission>
    saturation:
       aliases: [redsaturation]
       description: Give yourself or a player saturation
       usage: /<command> [<saturationlevel>] [<player>]
-      permission-message: You don't have the permission <permission>
    health:
       aliases: [redhealth, heal]
       description: Give yourself or a player health
       usage: /<command> [<healthlevel>] [<player>]
-      permission-message: You don't have the permission <permission>
    xp:
       aliases: [redxp,experience,exp,redexp]
       description: Give yourself or a player experience
       usage: /<command> [<xp>] [<player>]
-      permission-message: You don't have the permission <permission>
    level:
       aliases: [redlevel,lvl]
       description: Give yourself or a player level
       usage: /<command> [<level>] [<player>]
-      permission-message: You don't have the permission <permission>
 permissions:
-   rwm.redhunger.use:
+   rwm.redplayerutils.use.self.hunger:
       description: Gives permission to use the /hunger command
       default: op
-   rwm.redhunger.use.others:
+   rwm.redplayerutils.use.others.hunger:
       description: Gives permission to use the /hunger command on other players
       default: op
-   rwm.redhunger.setlevel:
+   rwm.redplayerutils.setlevel.self.hunger:
       description: Gives permission to set the food level
       default: op
-   rwm.redsaturation.use:
+   rwm.redplayerutils.setlevel.others.hunger:
+      description: Gives permission to set the food level on other players
+      default: op
+   rwm.redplayerutils.use.self.saturation:
       description: Gives permission to use the /saturation command
       default: op
-   rwm.redsaturation.use.others:
+   rwm.redplayerutils.use.others.saturation:
       description: Gives permission to use the /saturation command on other players
       default: op
-   rwm.redsaturation.setlevel:
-      description: Gives permission to set the food level
+   rwm.redplayerutils.setlevel.self.saturation:
+      description: Gives permission to set the saturation level
       default: op
-   rwm.redhealth.use:
+   rwm.redplayerutils.setlevel.others.saturation:
+      description: Gives permission to set the saturation level on other players
+      default: op
+   rwm.redplayerutils.use.self.health:
       description: Gives permission to use the /health command
       default: op
-   rwm.redhealth.use.others:
+   rwm.redplayerutils.use.others.health:
       description: Gives permission to use the /health command on other players
       default: op
-   rwm.redhealth.setlevel:
-      description: Gives permission to set the food level
+   rwm.redplayerutils.setlevel.self.health:
+      description: Gives permission to set the health level
       default: op
-   rwm.redxp.use:
+   rwm.redplayerutils.setlevel.others.health:
+      description: Gives permission to set the health level on other players
+      default: op
+   rwm.redplayerutils.use.self.xp:
       description: Gives permission to use the /xp command
       default: op
-   rwm.redxp.use.others:
+   rwm.redplayerutils.use.others.xp:
       description: Gives permission to use the /xp command on other players
       default: op
-   rwm.redxp.setlevel:
+   rwm.redplayerutils.setlevel.self.xp:
       description: Gives permission to set the experience level
       default: op
-   rwm.redlevel.use:
+   rwm.redplayerutils.setlevel.others.xp:
+      description: Gives permission to set the experience level on other players
+      default: op
+   rwm.redplayerutils.use.self.level:
       description: Gives permission to use the /level command
       default: op
-   rwm.redlevel.use.others:
+   rwm.redplayerutils.use.others.level:
       description: Gives permission to use the /level command on other players
       default: op
-   rwm.redlevel.setlevel:
+   rwm.redplayerutils.setlevel.self.level:
       description: Gives permission to set the elevelerience level
+      default: op
+   rwm.redplayerutils.setlevel.others.level:
+      description: Gives permission to set the elevelerience level on other players
       default: op
    rwm.redplayerutils:
       description: Gives permission to the main plugin command

@@ -19,19 +19,18 @@ public abstract class AbstractValueCommand implements CommandExecutor {
     }
     
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("rwm.red" + name + ".use")) {
-            sender.sendMessage(plugin.getLang("no-permission", "perm", "rwm.red" + name + ".use"));
-            return true;
-        }
-        
         if (args.length == 0 && sender instanceof Player) {
+            if (!sender.hasPermission("rwm.redplayerutils.use.self." + name)) {
+                sender.sendMessage(plugin.getLang("no-permission", "perm", "rwm.redplayerutils.use.self." + name));
+                return true;
+            }
             sender.sendMessage(plugin.getLang("current-level." + name + "", "value", getValue((Player) sender)));
             return true;
         } else if (args.length == 1) {
             Player player = plugin.getServer().getPlayer(args[0]);
             if (player != null) {
-                if (sender != player && !sender.hasPermission("rwm.red" + name + ".use.others")) {
-                    sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.red" + name + ".use.others"));
+                if (sender != player && !sender.hasPermission("rwm.redplayerutils.use.others." + name)) {
+                    sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.use.others." + name));
                     return true;
                 }
                 sender.sendMessage(plugin.getLang("current-level-other." + name + "",
@@ -40,12 +39,17 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                 return true;
             }
         }
+    
+        if (!sender.hasPermission("rwm.redplayerutils.setlevel.self." + name)) {
+            sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.setlevel.self." + name));
+            return true;
+        }
         
         // Get target player
         Player target;
         if (args.length > 1) {
-            if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.red" + name + ".use.others")) {
-                sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.red" + name + ".use.others"));
+            if (!sender.getName().equalsIgnoreCase(args[1]) && !sender.hasPermission("rwm.redplayerutils.setlevel.others." + name)) {
+                sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.setlevel.others." + name));
                 return true;
             }
             target = plugin.getServer().getPlayer(args[1]);
@@ -58,11 +62,6 @@ public abstract class AbstractValueCommand implements CommandExecutor {
             return true;
         } else {
             target = (Player) sender;
-        }
-        
-        if (!sender.hasPermission("rwm.red" + name + ".setlevel")) {
-            sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.red" + name + ".setlevel"));
-            return true;
         }
         
         try {
