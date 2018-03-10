@@ -21,7 +21,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0 && sender instanceof Player) {
             if (!sender.hasPermission("rwm.redplayerutils.use.self." + name)) {
-                sender.sendMessage(plugin.getLang("no-permission", "perm", "rwm.redplayerutils.use.self." + name));
+                sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.use.self." + name));
                 return true;
             }
             sender.sendMessage(plugin.getLang("current-level." + name + "", "value", getValue((Player) sender)));
