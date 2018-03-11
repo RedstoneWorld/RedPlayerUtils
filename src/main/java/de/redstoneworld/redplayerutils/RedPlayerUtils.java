@@ -52,7 +52,7 @@ public class RedPlayerUtils extends JavaPlugin {
     public static void setXp(Player target, int xp) {
         int level = getLevel(xp);
         target.setLevel(level);
-        target.setExp(xp / (float) getXpToNextLevelLevel(level));
+        target.setExp((xp - getTotalXp(level)) / (float) getXpToNextLevelLevel(level));
     }
     
     public static int getLevel(int xp) {
