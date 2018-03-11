@@ -11,6 +11,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 public class RedPlayerUtils extends JavaPlugin {
 
     public void onEnable() {
@@ -49,18 +52,19 @@ public class RedPlayerUtils extends JavaPlugin {
     }
     
     
-    public static void setXp(Player target, int xp) {
+    public static void setXp(Player target, long xp) {
         int level = getLevel(xp);
         target.setLevel(level);
+        long t = getTotalXp(level);
         target.setExp((xp - getTotalXp(level)) / (float) getXpToNextLevelLevel(level));
     }
     
-    public static int getLevel(int xp) {
+    public static int getLevel(long xp) {
         int level ;
         if (xp >= getTotalXp(32)) {
-            level = ((int) Math.sqrt(72 * xp - 54215) + 325) / 18;
+            level = (int) (Math.sqrt(72L * xp - 54215) + 325) / 18;
         } else if (xp >= getTotalXp(17)) {
-            level = ((int) Math.sqrt(40 * xp - 7839) - 81) / 10;
+            level = (int) (Math.sqrt(40L * xp - 7839) + 81) / 10;
         } else {
             level = (int) Math.sqrt(xp + 9) - 3;
         }
@@ -81,15 +85,15 @@ public class RedPlayerUtils extends JavaPlugin {
         }
     }
     
-    public static int getTotalXp(Player player) {
+    public static long getTotalXp(Player player) {
         return Math.round(getXpToNextLevelLevel(player) * player.getExp()) + getTotalXp(player.getLevel());
     }
     
-    public static int getTotalXp(int level) {
+    public static long getTotalXp(int level) {
         if (level > 31) {
-            return (int) (4.5 * level * level - 162.5 * level + 2220);
+            return (long) (4.5 * (long) level * level - 162.5 * level + 2220);
         } else if (level > 16) {
-            return (int) (2.5 * level * level - 40.5 * level + 360);
+            return (long) (2.5 * (long) level * level - 40.5 * level + 360);
         } else {
             return level * level + 6 * level;
         }

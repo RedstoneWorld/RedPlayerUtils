@@ -17,10 +17,16 @@ public class RedLevelCommand extends AbstractValueCommand {
     
     @Override
     protected boolean applyValue(Player target, String input) {
-        int level = Integer.parseInt(input);
+        if (input.length() > String.valueOf(Integer.MAX_VALUE).length()) {
+            return false;
+        }
+        long level = Long.parseLong(input);
+        if (level > Integer.MAX_VALUE) {
+            return false;
+        }
 
         // Apply level level
-        target.setLevel(level);
+        target.setLevel((int) level);
         target.setExp(0);
         return true;
     }
