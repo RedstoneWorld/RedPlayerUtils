@@ -20,7 +20,7 @@ public class RedSaturationCommand extends AbstractValueCommand {
     protected boolean applyValue(Player target, String input) {
         float saturationLevel = Float.parseFloat(input);
 
-        if (saturationLevel > MAX_LEVEL) {
+        if (saturationLevel > MAX_LEVEL || saturationLevel < 0) {
             return false;
         }
 

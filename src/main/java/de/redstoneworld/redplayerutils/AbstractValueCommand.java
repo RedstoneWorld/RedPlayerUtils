@@ -71,7 +71,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                         "value", args[0]
                 ));
             } else {
-                sender.sendMessage(plugin.getLang("error." + name + "-above-max", "input", args[0]));
+                sender.sendMessage(plugin.getLang("error." + name + "-range", "input", args[0]));
             }
         } catch (NumberFormatException e) {
             sender.sendMessage(plugin.getLang("error.wrong-" + name + "", "input", args[0]));

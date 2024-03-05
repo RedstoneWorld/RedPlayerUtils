@@ -23,7 +23,7 @@ public class RedXpCommand extends AbstractValueCommand {
             return false;
         }
         long xp = Long.parseLong(input);
-        if (xp > Integer.MAX_VALUE) {
+        if (xp > Integer.MAX_VALUE || xp < 0) {
             return false;
         }
         // Apply xp level

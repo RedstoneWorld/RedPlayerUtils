@@ -21,7 +21,7 @@ public class RedHungerCommand extends AbstractValueCommand {
     protected boolean applyValue(Player target, String input) {
         int foodLevel = Integer.parseInt(input);
 
-        if (foodLevel > MAX_LEVEL) {
+        if (foodLevel > MAX_LEVEL || foodLevel < 0) {
             return false;
         }
 
