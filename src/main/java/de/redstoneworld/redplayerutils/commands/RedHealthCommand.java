@@ -18,7 +18,7 @@ public class RedHealthCommand extends AbstractValueCommand {
     @Override
     protected boolean applyValue(Player target, String input) {
         double healthLevel = Double.parseDouble(input);
-        if (healthLevel > 20 || healthLevel < 0) {
+        if (healthLevel < 0 || healthLevel > 20) {
             return false;
         }
 
