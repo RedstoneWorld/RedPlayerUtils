@@ -24,7 +24,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                 sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.use.self." + name));
                 return true;
             }
-            sender.sendMessage(plugin.getLang("current-level." + name + "", "value", getValue((Player) sender)));
+            sender.sendMessage(plugin.getLang("current-level." + name, "value", getValue((Player) sender)));
             return true;
         } else if (args.length == 1) {
             Player player = plugin.getServer().getPlayer(args[0]);
@@ -33,7 +33,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                     sender.sendMessage(plugin.getLang("error.no-permission", "perm", "rwm.redplayerutils.use.others." + name));
                     return true;
                 }
-                sender.sendMessage(plugin.getLang("current-level-other." + name + "",
+                sender.sendMessage(plugin.getLang("current-level-other." + name,
                         "player", player.getName(),
                         "value", getValue(player)));
                 return true;
@@ -58,7 +58,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                 return true;
             }
         } else if (!(sender instanceof Player)) {
-            sender.sendMessage(plugin.getLang("usage-" + name + ""));
+            sender.sendMessage(plugin.getLang("usage-" + name));
             return true;
         } else {
             target = (Player) sender;
@@ -74,7 +74,7 @@ public abstract class AbstractValueCommand implements CommandExecutor {
                 sender.sendMessage(plugin.getLang("error." + name + "-range", "input", args[0]));
             }
         } catch (NumberFormatException e) {
-            sender.sendMessage(plugin.getLang("error.wrong-" + name + "", "input", args[0]));
+            sender.sendMessage(plugin.getLang("error.wrong-" + name, "input", args[0]));
         }
         
         return true;

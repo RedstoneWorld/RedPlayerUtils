@@ -6,6 +6,8 @@ import org.bukkit.entity.Player;
 
 public class RedLevelCommand extends AbstractValueCommand {
     
+    private final long MAX_LEVEL = Integer.MAX_VALUE;
+    
     public RedLevelCommand(RedPlayerUtils plugin, String name) {
         super(plugin, name);
     }
@@ -17,15 +19,16 @@ public class RedLevelCommand extends AbstractValueCommand {
     
     @Override
     protected boolean applyValue(Player target, String input) {
-        if (input.length() > String.valueOf(Integer.MAX_VALUE).length()) {
+        if (input.length() > String.valueOf(MAX_LEVEL).length()) {
             return false;
         }
+        
         long level = Long.parseLong(input);
-        if (level < 0 || level > Integer.MAX_VALUE) {
+        if (level < 0 || level > MAX_LEVEL) {
             return false;
         }
 
-        // Apply level level
+        // Apply level
         target.setLevel((int) level);
         target.setExp(0);
         return true;

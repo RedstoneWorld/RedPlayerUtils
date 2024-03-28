@@ -1,18 +1,11 @@
 package de.redstoneworld.redplayerutils;
 
-import de.redstoneworld.redplayerutils.commands.RedHealthCommand;
-import de.redstoneworld.redplayerutils.commands.RedHungerCommand;
-import de.redstoneworld.redplayerutils.commands.RedLevelCommand;
-import de.redstoneworld.redplayerutils.commands.RedSaturationCommand;
-import de.redstoneworld.redplayerutils.commands.RedXpCommand;
+import de.redstoneworld.redplayerutils.commands.*;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class RedPlayerUtils extends JavaPlugin {
 
@@ -68,7 +61,7 @@ public class RedPlayerUtils extends JavaPlugin {
         } else {
             level = (int) Math.sqrt(xp + 9) - 3;
         }
-        return level > 0 ? level : 0;
+        return Math.max(level, 0);
     }
     
     public static int getXpToNextLevelLevel(Player player) {

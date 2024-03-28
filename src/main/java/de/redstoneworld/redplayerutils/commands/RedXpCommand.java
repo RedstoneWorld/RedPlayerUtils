@@ -4,9 +4,9 @@ import de.redstoneworld.redplayerutils.AbstractValueCommand;
 import de.redstoneworld.redplayerutils.RedPlayerUtils;
 import org.bukkit.entity.Player;
 
-import java.math.BigInteger;
-
 public class RedXpCommand extends AbstractValueCommand {
+    
+    private final long MAX_XP = Integer.MAX_VALUE;
     
     public RedXpCommand(RedPlayerUtils plugin, String name) {
         super(plugin, name);
@@ -19,14 +19,16 @@ public class RedXpCommand extends AbstractValueCommand {
     
     @Override
     protected boolean applyValue(Player target, String input) {
-        if (input.length() >= String.valueOf(Long.MAX_VALUE).length()) {
+        if (input.length() > String.valueOf(MAX_XP).length()) {
             return false;
         }
+        
         long xp = Long.parseLong(input);
-        if (xp < 0 || xp > Integer.MAX_VALUE) {
+        if (xp < 0 || xp > MAX_XP) {
             return false;
         }
-        // Apply xp level
+        
+        // Apply XP
         RedPlayerUtils.setXp(target, xp);
         target.setTotalExperience(xp < Integer.MAX_VALUE ? (int) xp : Integer.MAX_VALUE);
         return true;
