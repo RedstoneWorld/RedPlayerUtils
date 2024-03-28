@@ -21,7 +21,7 @@ public class RedLevelCommand extends AbstractValueCommand {
             return false;
         }
         long level = Long.parseLong(input);
-        if (level > Integer.MAX_VALUE) {
+        if (level < 0 || level > Integer.MAX_VALUE) {
             return false;
         }
 
