@@ -39,7 +39,8 @@ public class RedPlayerUtils extends JavaPlugin {
     String getLang(String key, String... args) {
         String lang = getConfig().getString("lang." + key, "&cUnknown language key &6" + key);
         for (int i = 0; i + 1 < args.length; i+=2) {
-            lang = lang.replace("%" + args[i] + "%", args[i + 1]);
+            lang = lang.replace("%prefix%", getConfig().getString("lang.prefix", "RedPlayerUtils"))
+                    .replace("%" + args[i] + "%", args[i + 1]);
         }
         return ChatColor.translateAlternateColorCodes('&', lang);
     }
